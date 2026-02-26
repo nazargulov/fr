@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extensions Chrome pour la France | Outils Gratuits</title>
+    <meta name="description" content="Extensions Chrome 100% gratuites et en français. Convertisseur universel, outils de productivité et plus.">
+    <meta name="keywords" content="extension chrome, extension chrome gratuite, convertisseur, outils chrome, extension française">
+    <link rel="canonical" href="https://nazargulov.github.io/fr/">
+
+    <meta property="og:title" content="Extensions Chrome pour la France">
+    <meta property="og:description" content="Extensions Chrome 100% gratuites et en français.">
+    <meta property="og:url" content="https://nazargulov.github.io/fr/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: rgba(37, 99, 235, 0.08);
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 60px 0 80px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Extensions grid */
+        .extensions {
+            padding: 60px 0;
+        }
+
+        .extensions h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+
+        .ext-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .ext-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border: 1px solid #e2e8f0;
+        }
+
+        .ext-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .ext-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .ext-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .ext-desc {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .ext-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--light);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .ext-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>🇫🇷 Extensions Chrome</h1>
+        <p>Outils gratuits, 100% en français, respectueux de votre vie privée</p>
+    </div>
+</header>
+
+<section class="extensions">
+    <div class="container">
+        <h2>Nos extensions</h2>
+        <div class="ext-grid">
+            <a href="convertisseur/" class="ext-card">
+                <div class="ext-icon">🔄</div>
+                <div class="ext-name">Convertisseur Universel</div>
+                <div class="ext-desc">6 convertisseurs en 1 : devises (EUR/FRF), chiffres romains, TVA, calendrier républicain, unités et optique.</div>
+                <span class="ext-badge">✓ Gratuit</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Extensions Chrome FR. <a href="convertisseur/confidentialite.html">Confidentialité</a> · <a href="convertisseur/conditions.html">Conditions</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

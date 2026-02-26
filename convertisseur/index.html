@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertisseur Universel — Devises, Chiffres Romains, TVA | Extension Chrome Gratuite</title>
+    <meta name="description" content="Extension Chrome gratuite : convertisseur de devises (EUR/FRF), chiffres romains, TVA, calendrier républicain, unités et optique. 100% français, 100% gratuit.">
+    <meta name="keywords" content="convertisseur, convertisseur euro franc, chiffre romain, calcul TVA, convertisseur monnaie, conversion euro franc, convertisseur chiffre romain, calendrier républicain, convertisseur unités, extension chrome gratuite, convertisseur devise, HT TTC, conversion kW chevaux, lunettes lentilles, convertisseur franc euro, taux de change">
+    <link rel="canonical" href="https://nazargulov.github.io/fr/convertisseur/">
+
+    <meta property="og:title" content="Convertisseur Universel — Extension Chrome Gratuite">
+    <meta property="og:description" content="6 convertisseurs en 1 extension : devises, chiffres romains, TVA, calendrier républicain, unités et optique. 100% gratuit, 100% français.">
+    <meta property="og:url" content="https://nazargulov.github.io/fr/convertisseur/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- FAQ JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Comment convertir des euros en francs français ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Installez l'extension Convertisseur Universel, ouvrez l'onglet Devises, sélectionnez EUR et FRF, puis entrez le montant. Le taux fixe est 1 EUR = 6,55957 FRF."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment convertir un chiffre romain ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ouvrez l'onglet Romains dans l'extension. Vous pouvez convertir un nombre arabe (ex: 2026) en chiffre romain (MMXXVI) ou inversement."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment calculer la TVA (HT vers TTC) ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ouvrez l'onglet TVA, choisissez le taux (20%, 10%, 5,5% ou 2,1%), entrez le montant HT et le montant TTC s'affiche automatiquement avec le détail de la TVA."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "L'extension collecte-t-elle des données personnelles ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Non. L'extension ne collecte aucune donnée personnelle. L'historique des conversions est stocké localement sur votre appareil uniquement. Conforme RGPD/CNIL."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "L'extension fonctionne-t-elle hors ligne ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui, tous les convertisseurs fonctionnent hors ligne sauf le convertisseur de devises qui nécessite Internet pour les taux de change en temps réel. Les taux sont mis en cache pendant 1 heure."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- SoftwareApplication JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Convertisseur Universel",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Chrome",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "description": "Extension Chrome gratuite : 6 convertisseurs en 1 — devises, chiffres romains, TVA, calendrier républicain, unités et optique.",
+        "inLanguage": "fr"
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: rgba(37, 99, 235, 0.08);
+            --accent: #EF4444;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 120px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--primary-light) 0%, var(--white) 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 span { color: var(--primary); }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 28px;
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* How it works */
+        .how {
+            padding: 60px 0;
+            background: var(--light);
+        }
+
+        .how h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+        }
+
+        .step {
+            text-align: center;
+            max-width: 250px;
+        }
+
+        .step-num {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin: 0 auto 16px;
+        }
+
+        .step-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step-desc {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 60px 0;
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .faq-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-q {
+            padding: 18px 24px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+        }
+
+        .faq-q:hover { background: var(--light); }
+
+        .faq-a {
+            padding: 0 24px 18px;
+            color: var(--gray);
+            display: none;
+        }
+
+        .faq-item.open .faq-a { display: block; }
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+        .faq-arrow {
+            transition: transform 0.2s;
+            font-size: 0.8rem;
+        }
+
+        /* CTA section */
+        .cta-section {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            opacity: 0.9;
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .cta-white {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: transform 0.2s;
+        }
+
+        .cta-white:hover { transform: translateY(-2px); }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #94a3b8;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+
+        footer a:hover { color: white; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .steps { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="../" class="logo">🔄 Convertisseur Universel</a>
+        <a href="#installer" class="cta-btn">Installer gratuitement</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Convertisseur <span>Universel</span></h1>
+        <p>6 convertisseurs essentiels dans une seule extension Chrome. Devises, chiffres romains, TVA, calendrier républicain, unités et optique. 100% gratuit.</p>
+        <div class="hero-badges">
+            <span class="hero-badge">✓ 100% Gratuit</span>
+            <span class="hero-badge">🇫🇷 En français</span>
+            <span class="hero-badge">🔒 Aucune donnée collectée</span>
+            <span class="hero-badge">⚡ Ultra-léger</span>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>6 convertisseurs en 1</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">💶</div>
+                <div class="feature-title">Devises</div>
+                <div class="feature-desc">EUR, FRF, USD, GBP, CHF, JPY. Taux de change en temps réel + franc français au taux fixe (6,55957).</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏛️</div>
+                <div class="feature-title">Chiffres romains</div>
+                <div class="feature-desc">Conversion bidirectionnelle arabe ↔ romain. De I à MMMCMXCIX (1 à 3999). Validation automatique.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧾</div>
+                <div class="feature-title">TVA</div>
+                <div class="feature-desc">Calcul HT ↔ TTC avec les 4 taux français : 20%, 10%, 5,5% et 2,1%. Montant de TVA détaillé.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <div class="feature-title">Calendrier républicain</div>
+                <div class="feature-desc">Conversion grégorien ↔ républicain. Vendémiaire, Brumaire, Frimaire... Les 12 mois révolutionnaires.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📏</div>
+                <div class="feature-title">Unités</div>
+                <div class="feature-desc">mm ↔ pouces, kW ↔ chevaux fiscaux, °C ↔ °F. Idéal pour l'automobile et le quotidien.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👓</div>
+                <div class="feature-title">Optique</div>
+                <div class="feature-desc">Conversion lunettes → lentilles avec la formule vertex distance. Pour les corrections ≥ ±4 dioptries.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="how">
+    <div class="container">
+        <h2>Comment ça marche</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-title">Installez l'extension</div>
+                <div class="step-desc">Cliquez sur « Installer gratuitement » depuis le Chrome Web Store.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-title">Choisissez un onglet</div>
+                <div class="step-desc">6 convertisseurs disponibles : Devises, Romains, TVA, Calendrier, Unités, Optique.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-title">Convertissez !</div>
+                <div class="step-desc">Saisissez votre valeur, le résultat s'affiche instantanément. L'historique est sauvegardé.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq">
+    <div class="container">
+        <h2>Questions fréquentes</h2>
+        <div class="faq-item open">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Comment convertir des euros en francs français ?</span>
+                <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">Installez l'extension, ouvrez l'onglet Devises, sélectionnez EUR et FRF, puis entrez le montant. Le taux fixe est 1 EUR = 6,55957 FRF (taux de conversion officiel depuis le 1er janvier 1999).</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Comment convertir un chiffre romain ?</span>
+                <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">Ouvrez l'onglet Romains. Vous pouvez convertir un nombre arabe (ex: 2026) en chiffre romain (MMXXVI) ou inversement. Les nombres de 1 à 3999 sont supportés.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Comment calculer la TVA (HT vers TTC) ?</span>
+                <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">Ouvrez l'onglet TVA, choisissez le taux applicable (20%, 10%, 5,5% ou 2,1%), entrez le montant HT et le montant TTC s'affiche automatiquement avec le détail de la TVA.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>L'extension collecte-t-elle des données personnelles ?</span>
+                <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">Non. L'extension ne collecte aucune donnée personnelle. L'historique des conversions est stocké localement sur votre appareil uniquement. L'extension est conforme au RGPD et aux recommandations de la CNIL.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>L'extension fonctionne-t-elle hors ligne ?</span>
+                <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">Oui, tous les convertisseurs fonctionnent hors ligne sauf le convertisseur de devises qui nécessite une connexion Internet pour les taux de change en temps réel. Les taux sont mis en cache pendant 1 heure.</div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" id="installer">
+    <div class="container">
+        <h2>Installez Convertisseur Universel</h2>
+        <p>100% gratuit, 100% français. Aucun compte requis.</p>
+        <a href="#" class="cta-white">Ajouter à Chrome — Gratuit</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Convertisseur Universel · <a href="confidentialite.html">Politique de confidentialité</a> · <a href="conditions.html">Conditions d'utilisation</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
