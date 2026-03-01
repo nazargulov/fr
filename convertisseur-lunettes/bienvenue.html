@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLV0DL2WFH"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JLV0DL2WFH');</script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9782800108858107"
+         crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue — Convertisseur Lunettes → Lentilles</title>
+    <meta name="description" content="Comment utiliser le Convertisseur Lunettes → Lentilles. Épinglez l'extension, entrez votre correction, obtenez le résultat instantané.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            max-width: 420px;
+            width: 100%;
+            overflow: hidden;
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Header — tricolor accent */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 16px;
+            background: white;
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, #002395 33%, #fff 33%, #fff 66%, #ED2939 66%) 1;
+        }
+        .card-header-icon {
+            width: 28px;
+            height: 28px;
+        }
+        .card-header-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        /* Progress */
+        .progress {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 12px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            gap: 4px;
+        }
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            min-width: 68px;
+        }
+        .step-dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        .step.current .step-dot {
+            background: #002395;
+            color: white;
+            box-shadow: 0 0 0 4px rgba(0, 35, 149, 0.15);
+        }
+        .step.done .step-dot {
+            background: #16a34a;
+            color: white;
+        }
+        .step-label {
+            font-size: 10px;
+            color: #94a3b8;
+            text-align: center;
+        }
+        .step.current .step-label {
+            color: #002395;
+            font-weight: 600;
+        }
+        .step.done .step-label { color: #16a34a; }
+        .step-line {
+            width: 24px;
+            height: 2px;
+            background: #e2e8f0;
+            margin-bottom: 18px;
+        }
+        .step-line.done { background: #16a34a; }
+
+        /* Panels */
+        .panel {
+            padding: 20px 16px;
+            display: none;
+        }
+        .panel.visible { display: block; }
+        .panel h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        .panel p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+        .panel strong { color: #1e293b; }
+
+        /* Numbered instructions */
+        .instructions {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 14px 0;
+        }
+        .instr {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+        .instr strong { color: #1e293b; }
+        .instr-num {
+            width: 22px;
+            height: 22px;
+            background: #002395;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* Chrome UI mockup */
+        .chrome-mock {
+            background: #292b2e;
+            border-radius: 6px;
+            padding: 8px 10px;
+            margin-top: 8px;
+        }
+        .chrome-mock-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .chrome-mock-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #002395 50%, #ED2939 50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .chrome-mock-icon svg { filter: drop-shadow(0 1px 1px rgba(0,0,0,.3)); }
+        .chrome-mock-name {
+            color: #e8eaed;
+            font-size: 12px;
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .chrome-mock-pin {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            background: rgba(255,255,255,0.08);
+            flex-shrink: 0;
+        }
+        .chrome-mock-dots { color: #9aa0a6; font-size: 14px; flex-shrink: 0; width: 16px; text-align: center; }
+        .chrome-mock-hint {
+            color: #002395;
+            font-size: 11px;
+            font-weight: 700;
+            text-align: right;
+            margin-top: 3px;
+            padding-right: 28px;
+        }
+        .ext-icon-inline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #3c4043;
+            border-radius: 3px;
+            padding: 3px;
+            vertical-align: middle;
+        }
+
+        /* Popup mockup */
+        .popup-mock {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 12px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .popup-mock-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, #002395 33%, #fff 33%, #fff 66%, #ED2939 66%) 1;
+            font-size: 12px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        .popup-mock-body {
+            padding: 14px 12px;
+        }
+        .mock-eye-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .mock-eye-badge {
+            font-size: 10px;
+            font-weight: 700;
+            color: #002395;
+            background: rgba(0, 35, 149, 0.08);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .mock-eye-values {
+            font-size: 11px;
+            color: #64748b;
+        }
+        .mock-convert-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 30px;
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        .mock-tri-l {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #002395;
+        }
+        .mock-tri-r {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #ED2939;
+        }
+        .mock-convert-text {
+            font-size: 11px;
+            font-weight: 700;
+            color: #002395;
+            letter-spacing: 1px;
+        }
+
+        /* Result mockup */
+        .mock-result {
+            background: rgba(0, 35, 149, 0.04);
+            border: 1px solid rgba(0, 35, 149, 0.12);
+            border-radius: 6px;
+            padding: 10px 12px;
+            margin-top: 10px;
+        }
+        .mock-result-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #1e293b;
+        }
+        .mock-result-row + .mock-result-row {
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(0, 35, 149, 0.08);
+        }
+        .mock-result-check { color: #16a34a; font-weight: 700; }
+
+        /* Feature items */
+        .feat-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 14px 0;
+        }
+        .feat-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            background: #f8fafc;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #475569;
+        }
+        .feat-icon {
+            width: 30px;
+            height: 30px;
+            background: rgba(0, 35, 149, 0.08);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 14px;
+        }
+        .feat-item strong { color: #002395; }
+
+        /* Info box */
+        .info-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 12px 0;
+        }
+        .info-box-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+        .info-box p {
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Footer nav */
+        .nav-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+        .btn-back {
+            background: none;
+            border: 1px solid #e2e8f0;
+            color: #64748b;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .btn-back:hover { background: #f1f5f9; }
+        .btn-next {
+            background: #002395;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-next:hover {
+            background: #001a70;
+            transform: translateY(-1px);
+        }
+
+        /* Feedback */
+        .feedback {
+            text-align: center;
+            padding: 12px 16px;
+            border-top: 1px solid #e2e8f0;
+            background: #f8fafc;
+        }
+        .feedback p {
+            margin: 0 0 8px;
+            font-size: 12px;
+            color: #475569;
+        }
+        .feedback-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            background: white;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+            transition: all 0.15s;
+        }
+        .feedback-btn:hover { background: #e2e8f0; }
+        .links-footer {
+            padding: 10px 16px;
+            text-align: center;
+            font-size: 11px;
+        }
+        .links-footer a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+        .links-footer a:hover { color: #002395; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- Header -->
+        <div class="card-header">
+            <svg class="card-header-icon" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="96" height="96" rx="20" fill="#002395"/>
+                <ellipse cx="32" cy="48" rx="14" ry="10" stroke="white" stroke-width="4" fill="none"/>
+                <ellipse cx="64" cy="48" rx="14" ry="10" stroke="white" stroke-width="4" fill="none"/>
+                <path d="M46 48 L50 48" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                <path d="M18 48 L14 44" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                <path d="M78 48 L82 44" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span class="card-header-title">Convertisseur Lunettes → Lentilles</span>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="progress">
+            <div class="step current" data-step="1">
+                <div class="step-dot">1</div>
+                <span class="step-label">Epingler</span>
+            </div>
+            <div class="step-line" data-line="1"></div>
+            <div class="step" data-step="2">
+                <div class="step-dot">2</div>
+                <span class="step-label">Utiliser</span>
+            </div>
+            <div class="step-line" data-line="2"></div>
+            <div class="step" data-step="3">
+                <div class="step-dot">3</div>
+                <span class="step-label">Commander</span>
+            </div>
+        </div>
+
+        <!-- Step 1: Pin extension -->
+        <div class="panel visible" data-panel="1">
+            <h3>Epinglez l'extension dans Chrome</h3>
+            <p>Pour un acces rapide, epinglez l'extension dans la barre d'outils :</p>
+
+            <div class="instructions">
+                <div class="instr">
+                    <div class="instr-num">1</div>
+                    <div>Cliquez sur l'icone extensions <span class="ext-icon-inline"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="#e8eaed" d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5a2.5 2.5 0 0 0-5 0V5H4c-1.1 0-2 .9-2 2v3.8h1.5a2.5 2.5 0 0 1 0 5H2V20c0 1.1.9 2 2 2h3.8v-1.5a2.5 2.5 0 0 1 5 0V22H17c1.1 0 2-.9 2-2v-4h1.5a2.5 2.5 0 0 0 0-5z"/></svg></span> dans la barre Chrome</div>
+                </div>
+                <div class="instr">
+                    <div class="instr-num">2</div>
+                    <div>
+                        Trouvez <strong>Convertisseur Lunettes</strong> et cliquez sur l'epingle :
+                        <div class="chrome-mock">
+                            <div class="chrome-mock-row">
+                                <div class="chrome-mock-icon">
+                                    <svg viewBox="0 0 24 24" width="14" height="14">
+                                        <ellipse cx="8" cy="12" rx="4" ry="3" stroke="white" stroke-width="1.5" fill="none"/>
+                                        <ellipse cx="16" cy="12" rx="4" ry="3" stroke="white" stroke-width="1.5" fill="none"/>
+                                        <line x1="12" y1="12" x2="12.5" y2="12" stroke="white" stroke-width="1"/>
+                                    </svg>
+                                </div>
+                                <span class="chrome-mock-name">Convertisseur Lunettes →…</span>
+                                <div class="chrome-mock-pin"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="#9aa0a6" d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z"/></svg></div>
+                                <div class="chrome-mock-dots">⋮</div>
+                            </div>
+                            <div class="chrome-mock-hint">↑ Cliquez ici</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="instr">
+                    <div class="instr-num">3</div>
+                    <div>L'icone apparait dans la barre. <strong>Cliquez dessus</strong> pour ouvrir le convertisseur.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: How to use -->
+        <div class="panel" data-panel="2">
+            <h3>Comment convertir votre correction</h3>
+            <p>Ouvrez le popup et entrez les valeurs de votre ordonnance :</p>
+
+            <!-- Popup mockup -->
+            <div class="popup-mock">
+                <div class="popup-mock-header">
+                    <svg viewBox="0 0 96 96" width="16" height="16"><rect width="96" height="96" rx="20" fill="#002395"/><ellipse cx="32" cy="48" rx="14" ry="10" stroke="white" stroke-width="4" fill="none"/><ellipse cx="64" cy="48" rx="14" ry="10" stroke="white" stroke-width="4" fill="none"/></svg>
+                    Lunettes → Lentilles
+                </div>
+                <div class="popup-mock-body">
+                    <div class="mock-eye-row">
+                        <span class="mock-eye-badge">OD</span>
+                        <span class="mock-eye-values">Sphere: <strong>-5.00</strong> &nbsp; Cyl: <strong>-0.75</strong> &nbsp; Axe: <strong>180°</strong></span>
+                    </div>
+                    <div class="mock-eye-row">
+                        <span class="mock-eye-badge">OG</span>
+                        <span class="mock-eye-values">Sphere: <strong>-3.50</strong> &nbsp; Cyl: <strong>-0.50</strong> &nbsp; Axe: <strong>90°</strong></span>
+                    </div>
+                    <div class="mock-convert-btn">
+                        <span class="mock-tri-l"></span>
+                        <span class="mock-convert-text">CONVERTIR</span>
+                        <span class="mock-tri-r"></span>
+                    </div>
+                    <div class="mock-result">
+                        <div class="mock-result-row">
+                            <span class="mock-eye-badge">OD</span>
+                            <span>Sph: <strong>-4.75</strong> &nbsp; Cyl: <strong>-0.75</strong></span>
+                            <span class="mock-result-check">✓</span>
+                        </div>
+                        <div class="mock-result-row">
+                            <span class="mock-eye-badge">OG</span>
+                            <span>Sph: <strong>-3.25</strong> &nbsp; Cyl: <strong>-0.50</strong></span>
+                            <span class="mock-result-check">✓</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feat-list">
+                <div class="feat-item">
+                    <div class="feat-icon">↔</div>
+                    <span><strong>Inverse</strong> : convertir aussi lentilles → lunettes</span>
+                </div>
+                <div class="feat-item">
+                    <div class="feat-icon">💾</div>
+                    <span><strong>Sauvegarde</strong> vos valeurs pour la prochaine fois</span>
+                </div>
+                <div class="feat-item">
+                    <div class="feat-icon">📐</div>
+                    <span><strong>Distance vertex</strong> ajustable (10, 12, 14 mm)</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-header">
+                    <span>📋</span>
+                    <span>Ou trouver vos valeurs ?</span>
+                </div>
+                <p>Regardez votre <strong>ordonnance ophtalmologique</strong> — les colonnes SPH (sphere), CYL (cylindre) et AXE. La ligne OD = oeil droit, OG = oeil gauche.</p>
+            </div>
+        </div>
+
+        <!-- Step 3: Order lenses -->
+        <div class="panel" data-panel="3">
+            <h3>Commandez vos lentilles</h3>
+            <p>Apres la conversion, des <strong>liens directs</strong> vers les opticiens en ligne apparaissent dans le popup :</p>
+
+            <div class="feat-list">
+                <div class="feat-item">
+                    <div class="feat-icon">🏷️</div>
+                    <span><strong>Lentiamo</strong> — Meilleur prix, large choix</span>
+                </div>
+                <div class="feat-item">
+                    <div class="feat-icon">🚚</div>
+                    <span><strong>Optical Center</strong> — Livraison rapide</span>
+                </div>
+                <div class="feat-item">
+                    <div class="feat-icon">🏪</div>
+                    <span><strong>GrandOptical</strong> — Retrait en magasin</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-header">
+                    <span>⚕️</span>
+                    <span>Rappel important</span>
+                </div>
+                <p>Cette conversion est une <strong>estimation indicative</strong>. Consultez toujours votre opticien ou ophtalmologue avant de commander vos premieres lentilles de contact.</p>
+            </div>
+
+            <p style="text-align:center; font-size: 14px; margin-top: 4px;">Bonne conversion ! 👓 → 👁️</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-footer">
+            <button class="btn-back" id="btnBack" style="visibility: hidden;">Retour</button>
+            <button class="btn-next" id="btnNext">Suivant</button>
+        </div>
+
+        <!-- Feedback -->
+        <div class="feedback">
+            <p>Une question ou suggestion ?</p>
+            <a href="https://forms.gle/TUj3Bdy5A1qSj8kb8" target="_blank" rel="noopener" class="feedback-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                Donner votre avis
+            </a>
+        </div>
+
+        <!-- Links -->
+        <div class="links-footer">
+            <a href="../">Accueil</a> · <a href="index.html">Convertisseur en ligne</a>
+        </div>
+    </div>
+
+    <script>
+        let step = 1;
+        const total = 3;
+        const btnNext = document.getElementById('btnNext');
+        const btnBack = document.getElementById('btnBack');
+
+        function render() {
+            document.querySelectorAll('.step').forEach(el => {
+                const s = parseInt(el.dataset.step);
+                el.className = 'step';
+                if (s < step) el.classList.add('done');
+                else if (s === step) el.classList.add('current');
+            });
+            document.querySelectorAll('.step-line').forEach(el => {
+                const l = parseInt(el.dataset.line);
+                el.className = 'step-line';
+                if (l < step) el.classList.add('done');
+            });
+            document.querySelectorAll('.panel').forEach(el => {
+                el.classList.toggle('visible', parseInt(el.dataset.panel) === step);
+            });
+            btnBack.style.visibility = step === 1 ? 'hidden' : 'visible';
+            btnNext.textContent = step === total ? 'Ouvrir le convertisseur' : 'Suivant';
+        }
+
+        const stepNames = ['', 'epingler', 'utiliser', 'commander'];
+        btnNext.addEventListener('click', () => {
+            if (step < total) {
+                step++;
+                render();
+                gtag('event', 'tour_step', { step_name: stepNames[step], step_number: step });
+            } else {
+                gtag('event', 'tour_complete');
+                window.close();
+            }
+        });
+        btnBack.addEventListener('click', () => {
+            if (step > 1) { step--; render(); }
+        });
+    </script>
+</body>
+</html>
