@@ -616,7 +616,7 @@
                 <p>Cette conversion est une <strong>estimation indicative</strong>. Consultez toujours votre opticien ou ophtalmologue avant de commander vos premieres lentilles de contact.</p>
             </div>
 
-            <p style="text-align:center; font-size: 14px; margin-top: 4px;">Bonne conversion ! 👓 → 👁️</p>
+            <p style="text-align:center; font-size: 13px; color: #475569; margin-top: 8px;">Cliquez sur l'icone de l'extension dans la barre Chrome pour commencer.</p>
         </div>
 
         <!-- Navigation -->
@@ -662,7 +662,7 @@
                 el.classList.toggle('visible', parseInt(el.dataset.panel) === step);
             });
             btnBack.style.visibility = step === 1 ? 'hidden' : 'visible';
-            btnNext.textContent = step === total ? 'Ouvrir le convertisseur' : 'Suivant';
+            btnNext.textContent = step === total ? 'C\'est parti !' : 'Suivant';
         }
 
         const stepNames = ['', 'epingler', 'utiliser', 'commander'];
@@ -673,7 +673,10 @@
                 gtag('event', 'tour_step', { step_name: stepNames[step], step_number: step });
             } else {
                 gtag('event', 'tour_complete');
-                window.close();
+                btnNext.textContent = 'Bonne conversion !';
+                btnNext.disabled = true;
+                btnNext.style.opacity = '0.7';
+                btnNext.style.cursor = 'default';
             }
         });
         btnBack.addEventListener('click', () => {
