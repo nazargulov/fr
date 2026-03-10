@@ -10,4 +10,7 @@
 node_modules/
 .wrangler/
 .claude/
+*.md
+!README.md
+stripe/
 nazargulov.github.io
