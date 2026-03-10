@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLV0DL2WFH"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JLV0DL2WFH');</script>
+    <!-- Google tag (skip in dev mode) -->
+    <script>
+    if(new URLSearchParams(location.search).get('from')!=='dev'){
+        var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-JLV0DL2WFH';document.head.appendChild(s);
+        window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JLV0DL2WFH');
+    }else{window.gtag=function(){};}
+    </script>
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9782800108858107"
          crossorigin="anonymous"></script>
