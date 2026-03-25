@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9782800108858107"
+         crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZZQJVF4E5"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0ZZQJVF4E5');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertisseur de Devises — Taux de Change en Direct | Extension Chrome Gratuite</title>
+    <meta name="description" content="Extension Chrome gratuite : convertisseur de devises avec taux en direct. Euro, dollar, franc, livre, yen, dirham et 30+ monnaies. Rapide et sans inscription.">
+    <meta name="keywords" content="convertisseur monnaie, convertisseur devises, conversion euro dollar, convertisseur euro franc, convertisseur de devises, conversion monnaie, taux de change, convertisseur devise, euro franc, euro dollar, taux change euro, convertisseur franc euro, extension chrome gratuite">
+    <link rel="canonical" href="https://nazargulov.github.io/fr/convertisseur-devises/">
+
+    <meta property="og:title" content="Convertisseur de Devises — Taux de Change en Direct">
+    <meta property="og:description" content="Convertissez instantanément entre 30+ devises avec les taux en direct. Euro, dollar, franc, livre, yen. 100% gratuit.">
+    <meta property="og:url" content="https://nazargulov.github.io/fr/convertisseur-devises/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- FAQ JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Comment convertir des euros en dollars ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Installez l'extension Convertisseur de Devises, cliquez sur l'icône, puis saisissez un montant sur la ligne EUR ou USD. Toutes les autres devises se mettent à jour instantanément avec les taux en direct."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment convertir des euros en francs français ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le franc français (FRF) est inclus par défaut. Le taux fixe officiel est 1 EUR = 6,55957 FRF, en vigueur depuis le 1er janvier 1999."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Les taux de change sont-ils fiables ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui. Les taux sont actualisés toutes les heures depuis une API de référence. Un indicateur vert confirme que les taux sont en direct. L'extension fonctionne aussi hors ligne avec les derniers taux en cache."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "L'extension collecte-t-elle des données personnelles ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Non. Aucune donnée personnelle n'est collectée. L'historique et les préférences restent sur votre appareil. Seules des statistiques anonymes d'utilisation sont envoyées pour améliorer l'extension."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Combien de devises sont disponibles ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Plus de 30 devises sont disponibles : EUR, USD, GBP, CHF, JPY, CAD, AUD, MAD, TND, XOF, CNY, INR, BRL, TRY, PLN, SEK, NOK, DKK et bien d'autres. Vous pouvez ajouter ou retirer des devises à tout moment."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- SoftwareApplication JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Convertisseur de Devises",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Chrome",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "description": "Extension Chrome gratuite : convertisseur de devises avec taux de change en direct. 30+ monnaies dont l'euro, le dollar, le franc et la livre sterling.",
+        "inLanguage": "fr"
+    }
+    </script>
+
+    <style>
+        :root {
+            --blue: #002395;
+            --red: #ED2939;
+            --blue-light: rgba(0, 35, 149, 0.06);
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: var(--blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 120px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--blue-light) 0%, var(--white) 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 .blue { color: var(--blue); }
+        .hero h1 .red { color: var(--red); }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Features */
+        .features { padding: 60px 0; }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 28px;
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon { font-size: 32px; margin-bottom: 12px; }
+        .feature-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+        .feature-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.5; }
+
+        /* Currencies showcase */
+        .currencies {
+            padding: 60px 0;
+            background: var(--light);
+        }
+
+        .currencies h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .currency-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .currency-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* How it works */
+        .how { padding: 60px 0; }
+
+        .how h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+        }
+
+        .step { text-align: center; max-width: 250px; }
+
+        .step-num {
+            width: 48px;
+            height: 48px;
+            background: var(--blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin: 0 auto 16px;
+        }
+
+        .step-title { font-weight: 700; margin-bottom: 8px; }
+        .step-desc { font-size: 0.9rem; color: var(--gray); }
+
+        /* FAQ */
+        .faq { padding: 60px 0; background: var(--light); }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .faq-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-q {
+            padding: 18px 24px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+        }
+
+        .faq-q:hover { background: var(--light); }
+
+        .faq-a {
+            padding: 0 24px 18px;
+            color: var(--gray);
+            display: none;
+        }
+
+        .faq-item.open .faq-a { display: block; }
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+        .faq-arrow { transition: transform 0.2s; font-size: 0.8rem; }
+
+        /* CTA section */
+        .cta-section {
+            padding: 60px 0;
+            text-align: center;
+            background: var(--blue);
+            color: white;
+        }
+
+        .cta-section h2 { font-size: 2rem; margin-bottom: 16px; }
+        .cta-section p { opacity: 0.9; margin-bottom: 24px; font-size: 1.1rem; }
+
+        .cta-white {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: white;
+            color: var(--blue);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: transform 0.2s;
+        }
+
+        .cta-white:hover { transform: translateY(-2px); }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #94a3b8;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        footer a { color: #94a3b8; text-decoration: none; }
+        footer a:hover { color: white; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .steps { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="../" class="logo"><span class="logo-icon">💶</span> Convertisseur de Devises</a>
+        <a href="#installer" class="cta-btn">Installer gratuitement</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Convertisseur de <span class="blue">Devises</span></h1>
+        <p>Taux de change en direct pour 30+ devises. Euro, dollar, franc, livre, yen, dirham. Rapide, gratuit, sans inscription.</p>
+        <div class="hero-badges">
+            <span class="hero-badge">✓ 100% Gratuit</span>
+            <span class="hero-badge">🇫🇷 En fran&ccedil;ais</span>
+            <span class="hero-badge">📡 Taux en direct</span>
+            <span class="hero-badge">🔒 Aucune donn&eacute;e collect&eacute;e</span>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>Pourquoi choisir notre convertisseur ?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📡</div>
+                <div class="feature-title">Taux en direct</div>
+                <div class="feature-desc">Taux de change actualis&eacute;s automatiquement chaque heure. Un indicateur vert confirme que les taux sont &agrave; jour.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <div class="feature-title">Multi-devises</div>
+                <div class="feature-desc">Saisissez un montant, toutes les devises se mettent &agrave; jour instantan&eacute;ment. Ajoutez ou retirez des devises en un clic.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🇫🇷</div>
+                <div class="feature-title">Franc fran&ccedil;ais</div>
+                <div class="feature-desc">Le FRF est inclus au taux fixe officiel : 1 EUR = 6,55957 FRF. Id&eacute;al pour comparer les prix anciens.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🕘</div>
+                <div class="feature-title">Historique</div>
+                <div class="feature-desc">Retrouvez vos derni&egrave;res conversions dans l'historique int&eacute;gr&eacute;. Effacez-le &agrave; tout moment.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📴</div>
+                <div class="feature-title">Fonctionne hors ligne</div>
+                <div class="feature-desc">Les taux sont mis en cache localement. L'extension reste utilisable m&ecirc;me sans connexion Internet.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-title">Ultra-l&eacute;ger</div>
+                <div class="feature-desc">Interface compacte et rapide. Pas de publicit&eacute;, pas de tracking, pas de compte requis.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="currencies">
+    <div class="container">
+        <h2>30+ devises disponibles</h2>
+        <div class="currency-tags">
+            <span class="currency-tag">🇪🇺 EUR</span>
+            <span class="currency-tag">🇫🇷 FRF</span>
+            <span class="currency-tag">🇺🇸 USD</span>
+            <span class="currency-tag">🇬🇧 GBP</span>
+            <span class="currency-tag">🇨🇭 CHF</span>
+            <span class="currency-tag">🇯🇵 JPY</span>
+            <span class="currency-tag">🇨🇦 CAD</span>
+            <span class="currency-tag">🇲🇦 MAD</span>
+            <span class="currency-tag">🇹🇳 TND</span>
+            <span class="currency-tag">🇸🇳 XOF</span>
+            <span class="currency-tag">🇨🇳 CNY</span>
+            <span class="currency-tag">🇮🇳 INR</span>
+            <span class="currency-tag">🇧🇷 BRL</span>
+            <span class="currency-tag">🇹🇷 TRY</span>
+            <span class="currency-tag">🇦🇺 AUD</span>
+            <span class="currency-tag">🇸🇪 SEK</span>
+            <span class="currency-tag">🇳🇴 NOK</span>
+            <span class="currency-tag">🇩🇰 DKK</span>
+            <span class="currency-tag">🇵🇱 PLN</span>
+            <span class="currency-tag">🇰🇷 KRW</span>
+        </div>
+    </div>
+</section>
+
+<section class="how">
+    <div class="container">
+        <h2>Comment &ccedil;a marche</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-title">Installez l'extension</div>
+                <div class="step-desc">Cliquez sur &laquo; Installer gratuitement &raquo; depuis le Chrome Web Store.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-title">Cliquez sur l'ic&ocirc;ne</div>
+                <div class="step-desc">L'ic&ocirc;ne tricolore appara&icirc;t dans votre barre d'outils Chrome.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-title">Convertissez !</div>
+                <div class="step-desc">Saisissez un montant sur n'importe quelle ligne. Toutes les devises se mettent &agrave; jour.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq" id="faq">
+    <div class="container">
+        <h2>Questions fr&eacute;quentes</h2>
+        <div class="faq-item open">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Comment convertir des euros en dollars ?</span>
+                <span class="faq-arrow">&#9660;</span>
+            </div>
+            <div class="faq-a">Installez l'extension, cliquez sur l'ic&ocirc;ne, puis saisissez un montant sur la ligne EUR ou USD. Toutes les autres devises se mettent &agrave; jour instantan&eacute;ment avec les taux en direct.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Comment convertir des euros en francs fran&ccedil;ais ?</span>
+                <span class="faq-arrow">&#9660;</span>
+            </div>
+            <div class="faq-a">Le franc fran&ccedil;ais (FRF) est inclus par d&eacute;faut dans la liste. Le taux fixe officiel est 1 EUR = 6,55957 FRF, en vigueur depuis le 1er janvier 1999.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Les taux de change sont-ils fiables ?</span>
+                <span class="faq-arrow">&#9660;</span>
+            </div>
+            <div class="faq-a">Oui. Les taux sont actualis&eacute;s toutes les heures depuis une API de r&eacute;f&eacute;rence. Un indicateur vert confirme que les taux sont en direct. L'extension fonctionne aussi hors ligne avec les derniers taux en cache.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>L'extension collecte-t-elle des donn&eacute;es personnelles ?</span>
+                <span class="faq-arrow">&#9660;</span>
+            </div>
+            <div class="faq-a">Non. Aucune donn&eacute;e personnelle n'est collect&eacute;e. L'historique et les pr&eacute;f&eacute;rences restent sur votre appareil. Seules des statistiques anonymes d'utilisation sont envoy&eacute;es pour am&eacute;liorer l'extension.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Combien de devises sont disponibles ?</span>
+                <span class="faq-arrow">&#9660;</span>
+            </div>
+            <div class="faq-a">Plus de 30 devises : EUR, USD, GBP, CHF, JPY, CAD, AUD, MAD, TND, XOF, CNY, INR, BRL, TRY, PLN, SEK, NOK, DKK et bien d'autres. Vous pouvez ajouter ou retirer des devises &agrave; tout moment.</div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" id="installer">
+    <div class="container">
+        <h2>Installez Convertisseur de Devises</h2>
+        <p>100% gratuit, 100% fran&ccedil;ais. Aucun compte requis.</p>
+        <a href="#" class="cta-white">Ajouter &agrave; Chrome — Gratuit</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Convertisseur de Devises &middot; <a href="confidentialite.html">Politique de confidentialit&eacute;</a> &middot; <a href="conditions.html">Conditions d'utilisation</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
