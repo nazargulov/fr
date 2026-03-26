@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="26" fill="#151B35"/>
+
+  <!-- White border ring (sticker effect) -->
+  <path d="M 30 87 A 42 42 0 0 1 55 23" fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round"/>
+  <path d="M 55 23 A 42 42 0 0 1 100 50" fill="none" stroke="#FFFFFF" stroke-width="20"/>
+  <path d="M 100 50 A 42 42 0 0 1 75 105" fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round"/>
+  <path d="M 75 105 A 42 42 0 0 1 30 87" fill="none" stroke="#FFFFFF" stroke-width="20"/>
+
+  <!-- Arrowhead white borders -->
+  <polygon points="40,14 62,22 48,40" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round"/>
+  <polygon points="88,114 66,106 80,88" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round"/>
+
+  <!-- Colored arcs -->
+  <path d="M 30 87 A 42 42 0 0 1 55 23" fill="none" stroke="#002395" stroke-width="13" stroke-linecap="round"/>
+  <path d="M 55 23 A 42 42 0 0 1 100 50" fill="none" stroke="#FFFFFF" stroke-width="13"/>
+  <path d="M 100 50 A 42 42 0 0 1 75 105" fill="none" stroke="#ED2939" stroke-width="13" stroke-linecap="round"/>
+  <path d="M 75 105 A 42 42 0 0 1 30 87" fill="none" stroke="#FFFFFF" stroke-width="13"/>
+
+  <!-- Colored arrowheads -->
+  <polygon points="40,14 62,22 48,40" fill="#002395"/>
+  <polygon points="88,114 66,106 80,88" fill="#ED2939"/>
+
+  <!-- Euro symbol -->
+  <text x="64" y="80" text-anchor="middle" font-family="Arial Black,Helvetica Neue,Arial,sans-serif" font-size="52" font-weight="900" fill="#FFFFFF">€</text>
+</svg>

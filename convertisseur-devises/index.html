@@ -7,13 +7,14 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0ZZQJVF4E5');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convertisseur de Devises — Taux de Change en Direct | Extension Chrome Gratuite</title>
-    <meta name="description" content="Extension Chrome gratuite : convertisseur de devises avec taux en direct. Euro, dollar, franc, livre, yen, dirham et 30+ monnaies. Rapide et sans inscription.">
-    <meta name="keywords" content="convertisseur monnaie, convertisseur devises, conversion euro dollar, convertisseur euro franc, convertisseur de devises, conversion monnaie, taux de change, convertisseur devise, euro franc, euro dollar, taux change euro, convertisseur franc euro, extension chrome gratuite">
+    <title>Convertisseur Monnaie & Devises — Euro Dollar Franc Suisse Dirham | Chrome Gratuit</title>
+    <meta name="description" content="Convertisseur monnaie gratuit : euro franc suisse, euro dollar, euro dirham, euro yen, franc CFA. Taux de change en direct, 150+ devises. Extension Chrome.">
+    <meta name="keywords" content="convertisseur monnaie, convertisseur devises, conversion euro dollar, franc suisse euro, euro dirham marocain, convertisseur euro franc cfa, euro yen, conversion livre euro, taux de change, convertisseur euro franc, dinar algerien euro, conversion monnaie, convertisseur euro livre, change euro franc suisse, extension chrome gratuite">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="canonical" href="https://nazargulov.github.io/fr/convertisseur-devises/">
 
-    <meta property="og:title" content="Convertisseur de Devises — Taux de Change en Direct">
-    <meta property="og:description" content="Convertissez instantanément entre 30+ devises avec les taux en direct. Euro, dollar, franc, livre, yen. 100% gratuit.">
+    <meta property="og:title" content="Convertisseur Monnaie & Devises — Euro Dollar Franc Suisse">
+    <meta property="og:description" content="Convertisseur monnaie gratuit : euro franc suisse, dollar, dirham, yen, franc CFA. Taux de change en direct, 150+ devises.">
     <meta property="og:url" content="https://nazargulov.github.io/fr/convertisseur-devises/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
@@ -61,7 +62,31 @@
                 "name": "Combien de devises sont disponibles ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Plus de 30 devises sont disponibles : EUR, USD, GBP, CHF, JPY, CAD, AUD, MAD, TND, XOF, CNY, INR, BRL, TRY, PLN, SEK, NOK, DKK et bien d'autres. Vous pouvez ajouter ou retirer des devises à tout moment."
+                    "text": "Plus de 150 devises sont disponibles : EUR, CHF, USD, GBP, JPY, MAD, XOF, DZD, TND, CAD, AUD, CNY, TRY, BRL, PLN, SEK et bien d'autres. Vous pouvez ajouter ou retirer des devises à tout moment."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment convertir des euros en francs suisses ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le franc suisse (CHF) est inclus par défaut. Saisissez un montant en EUR ou CHF et le taux de change euro franc suisse se met à jour automatiquement. Idéal pour les frontaliers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment convertir des euros en dirhams marocains ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le dirham marocain (MAD) est disponible dans la liste. Ajoutez-le si besoin, saisissez un montant et obtenez le taux de change euro dirham marocain du jour. Parfait avant un transfert ou un voyage au Maroc."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment convertir des euros en francs CFA ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le franc CFA (XOF pour l'Afrique de l'Ouest, XAF pour l'Afrique Centrale) est inclus. Convertissez euro en franc CFA ou CFA en euro instantanément."
                 }
             }
         ]
@@ -81,8 +106,9 @@
             "price": "0",
             "priceCurrency": "EUR"
         },
-        "description": "Extension Chrome gratuite : convertisseur de devises avec taux de change en direct. 30+ monnaies dont l'euro, le dollar, le franc et la livre sterling.",
-        "inLanguage": "fr"
+        "description": "Convertisseur monnaie gratuit : euro franc suisse, dollar, dirham, yen, franc CFA. Taux de change en direct, 150+ devises.",
+        "inLanguage": "fr",
+        "installUrl": "https://chromewebstore.google.com/detail/mjgiogkjhdijbcdhanmglpccbmfegabb"
     }
     </script>
 
@@ -384,10 +410,172 @@
         footer a { color: #94a3b8; text-decoration: none; }
         footer a:hover { color: white; }
 
+        /* Converter widget */
+        .converter {
+            padding: 60px 0;
+            background: var(--white);
+        }
+        .converter h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .converter .subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+        }
+        .conv-card {
+            max-width: 520px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+        .conv-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .conv-header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+        .conv-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+        .conv-status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #16a34a;
+            box-shadow: 0 0 0 2px rgba(22,163,74,0.2);
+        }
+        .conv-body { padding: 16px 20px; }
+        .conv-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            margin-bottom: 6px;
+            border-radius: 10px;
+            border: 1.5px solid #e2e8f0;
+            background: var(--white);
+            transition: border-color 0.15s;
+        }
+        .conv-row:focus-within {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(0, 35, 149, 0.08);
+        }
+        .conv-flag { font-size: 22px; flex-shrink: 0; }
+        .conv-info { display: flex; flex-direction: column; min-width: 80px; }
+        .conv-code { font-size: 0.85rem; font-weight: 700; color: var(--dark); }
+        .conv-name { font-size: 0.7rem; color: #94a3b8; }
+        .conv-input {
+            flex: 1;
+            border: none;
+            background: none;
+            text-align: right;
+            font-size: 1.15rem;
+            font-weight: 600;
+            font-family: 'SF Mono', 'Cascadia Code', Consolas, monospace;
+            color: var(--dark);
+            outline: none;
+            min-width: 0;
+        }
+        .conv-input::placeholder { color: #cbd5e1; }
+        .conv-row:focus-within .conv-input { color: var(--blue); }
+        .conv-swap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 4px 0;
+        }
+        .conv-swap button {
+            background: var(--blue);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .conv-swap button:hover { transform: rotate(180deg); }
+        .conv-footer {
+            padding: 12px 20px 16px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        .conv-footer-text {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-bottom: 10px;
+        }
+        .conv-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 20px;
+            background: var(--blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .conv-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+        .conv-more {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            padding: 0 20px 16px;
+        }
+        .conv-more button {
+            padding: 5px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: #f8fafc;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .conv-more button:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            background: rgba(0,35,149,0.04);
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 1.8rem; }
             .features-grid { grid-template-columns: 1fr; }
             .steps { flex-direction: column; align-items: center; }
+            .conv-card { margin: 0 10px; }
         }
     </style>
 </head>
@@ -395,20 +583,65 @@
 
 <header>
     <div class="container">
-        <a href="../" class="logo"><span class="logo-icon">💶</span> Convertisseur de Devises</a>
-        <a href="#installer" class="cta-btn">Installer gratuitement</a>
+        <a href="../" class="logo"><img src="favicon.svg" alt="" width="28" height="28" style="border-radius:6px"> Convertisseur de Devises</a>
+        <a href="https://chromewebstore.google.com/detail/mjgiogkjhdijbcdhanmglpccbmfegabb" class="cta-btn">Installer gratuitement</a>
     </div>
 </header>
 
 <section class="hero">
     <div class="container">
-        <h1>Convertisseur de <span class="blue">Devises</span></h1>
-        <p>Taux de change en direct pour 30+ devises. Euro, dollar, franc, livre, yen, dirham. Rapide, gratuit, sans inscription.</p>
+        <h1>Convertisseur de <span class="blue">Monnaie</span> & <span class="red">Devises</span></h1>
+        <p>Taux de change en direct pour 150+ devises. Euro, franc suisse, dollar, livre, dirham, yen, franc CFA. Gratuit, sans inscription.</p>
         <div class="hero-badges">
             <span class="hero-badge">✓ 100% Gratuit</span>
             <span class="hero-badge">🇫🇷 En fran&ccedil;ais</span>
             <span class="hero-badge">📡 Taux en direct</span>
             <span class="hero-badge">🔒 Aucune donn&eacute;e collect&eacute;e</span>
+        </div>
+    </div>
+</section>
+
+<section class="converter" id="convertir">
+    <div class="container">
+        <h2>Convertisseur de monnaie en ligne</h2>
+        <p class="subtitle">Taux de change en direct &mdash; actualis&eacute;s chaque heure</p>
+        <div class="conv-card">
+            <div class="conv-header">
+                <div class="conv-header-left">
+                    <img src="favicon.svg" alt="" width="20" height="20" style="border-radius:4px">
+                    <span>Convertisseur</span>
+                </div>
+                <div class="conv-status">
+                    <span class="conv-status-dot"></span>
+                    <span id="convStatus">Chargement...</span>
+                </div>
+            </div>
+            <div class="conv-body">
+                <div class="conv-row" id="fromRow">
+                    <span class="conv-flag" id="fromFlag">🇪🇺</span>
+                    <div class="conv-info">
+                        <span class="conv-code" id="fromCode">EUR</span>
+                        <span class="conv-name" id="fromName">Euro</span>
+                    </div>
+                    <input class="conv-input" id="fromInput" type="text" inputmode="decimal" value="100" placeholder="0">
+                </div>
+                <div class="conv-swap">
+                    <button onclick="swapCurrencies()" title="Inverser" aria-label="Inverser les devises">&#8645;</button>
+                </div>
+                <div class="conv-row" id="toRow">
+                    <span class="conv-flag" id="toFlag">🇨🇭</span>
+                    <div class="conv-info">
+                        <span class="conv-code" id="toCode">CHF</span>
+                        <span class="conv-name" id="toName">Franc suisse</span>
+                    </div>
+                    <input class="conv-input" id="toInput" type="text" inputmode="decimal" placeholder="0" readonly>
+                </div>
+            </div>
+            <div class="conv-more" id="quickPairs"></div>
+            <div class="conv-footer">
+                <div class="conv-footer-text">150+ devises, historique, mode hors ligne &mdash; dans l'extension</div>
+                <a href="https://chromewebstore.google.com/detail/mjgiogkjhdijbcdhanmglpccbmfegabb" class="conv-cta">Installer l'extension gratuite &rarr;</a>
+            </div>
         </div>
     </div>
 </section>
@@ -453,28 +686,28 @@
 
 <section class="currencies">
     <div class="container">
-        <h2>30+ devises disponibles</h2>
+        <h2>150+ devises disponibles</h2>
         <div class="currency-tags">
-            <span class="currency-tag">🇪🇺 EUR</span>
-            <span class="currency-tag">🇫🇷 FRF</span>
-            <span class="currency-tag">🇺🇸 USD</span>
-            <span class="currency-tag">🇬🇧 GBP</span>
-            <span class="currency-tag">🇨🇭 CHF</span>
-            <span class="currency-tag">🇯🇵 JPY</span>
-            <span class="currency-tag">🇨🇦 CAD</span>
-            <span class="currency-tag">🇲🇦 MAD</span>
-            <span class="currency-tag">🇹🇳 TND</span>
-            <span class="currency-tag">🇸🇳 XOF</span>
-            <span class="currency-tag">🇨🇳 CNY</span>
-            <span class="currency-tag">🇮🇳 INR</span>
-            <span class="currency-tag">🇧🇷 BRL</span>
-            <span class="currency-tag">🇹🇷 TRY</span>
-            <span class="currency-tag">🇦🇺 AUD</span>
-            <span class="currency-tag">🇸🇪 SEK</span>
-            <span class="currency-tag">🇳🇴 NOK</span>
-            <span class="currency-tag">🇩🇰 DKK</span>
-            <span class="currency-tag">🇵🇱 PLN</span>
-            <span class="currency-tag">🇰🇷 KRW</span>
+            <span class="currency-tag">🇪🇺 EUR &mdash; Euro</span>
+            <span class="currency-tag">🇨🇭 CHF &mdash; Franc suisse</span>
+            <span class="currency-tag">🇺🇸 USD &mdash; Dollar</span>
+            <span class="currency-tag">🇬🇧 GBP &mdash; Livre sterling</span>
+            <span class="currency-tag">🇲🇦 MAD &mdash; Dirham marocain</span>
+            <span class="currency-tag">🇯🇵 JPY &mdash; Yen</span>
+            <span class="currency-tag">🇸🇳 XOF &mdash; Franc CFA</span>
+            <span class="currency-tag">🇫🇷 FRF &mdash; Franc fran&ccedil;ais</span>
+            <span class="currency-tag">🇩🇿 DZD &mdash; Dinar alg&eacute;rien</span>
+            <span class="currency-tag">🇹🇳 TND &mdash; Dinar tunisien</span>
+            <span class="currency-tag">🇹🇷 TRY &mdash; Livre turque</span>
+            <span class="currency-tag">🇨🇦 CAD &mdash; Dollar canadien</span>
+            <span class="currency-tag">🇨🇳 CNY &mdash; Yuan</span>
+            <span class="currency-tag">🇮🇳 INR &mdash; Roupie</span>
+            <span class="currency-tag">🇧🇷 BRL &mdash; Real</span>
+            <span class="currency-tag">🇦🇺 AUD &mdash; Dollar australien</span>
+            <span class="currency-tag">🇸🇪 SEK &mdash; Couronne su&eacute;doise</span>
+            <span class="currency-tag">🇵🇱 PLN &mdash; Zloty</span>
+            <span class="currency-tag">🇰🇷 KRW &mdash; Won</span>
+            <span class="currency-tag">&hellip; et 130+ autres</span>
         </div>
     </div>
 </section>
@@ -497,6 +730,44 @@
                 <div class="step-num">3</div>
                 <div class="step-title">Convertissez !</div>
                 <div class="step-desc">Saisissez un montant sur n'importe quelle ligne. Toutes les devises se mettent &agrave; jour.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="conversions" style="padding:60px 0;">
+    <div class="container">
+        <h2>Conversions populaires en France</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🇨🇭</div>
+                <div class="feature-title">Euro &harr; Franc suisse</div>
+                <div class="feature-desc">Conversion euro franc suisse en direct. Indispensable pour les frontaliers qui travaillent en Suisse et les achats outre-Rh&ocirc;ne. Taux CHF/EUR actualis&eacute; chaque heure.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🇲🇦</div>
+                <div class="feature-title">Euro &harr; Dirham marocain</div>
+                <div class="feature-desc">Taux de change euro dirham marocain pour les transferts vers le Maroc. Consultez le cours du jour MAD/EUR avant vos envois d'argent.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🇺🇸</div>
+                <div class="feature-title">Euro &harr; Dollar</div>
+                <div class="feature-desc">Convertisseur euro dollar pour vos achats sur Amazon, eBay ou tout site am&eacute;ricain. Taux de change USD/EUR en temps r&eacute;el.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🇯🇵</div>
+                <div class="feature-title">Euro &harr; Yen</div>
+                <div class="feature-desc">Conversion euro yen pour vos voyages au Japon. 1 euro en yen, 1000 yen en euro &mdash; r&eacute;sultat instantan&eacute;.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🇸🇳</div>
+                <div class="feature-title">Euro &harr; Franc CFA</div>
+                <div class="feature-desc">Convertisseur euro franc CFA (XOF/XAF) pour l'Afrique de l'Ouest et Centrale. Convertir CFA en euro ou euro en FCFA en un clic.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🇬🇧</div>
+                <div class="feature-title">Euro &harr; Livre sterling</div>
+                <div class="feature-desc">Conversion livre euro pour vos achats au Royaume-Uni. Taux GBP/EUR actualis&eacute;, id&eacute;al apr&egrave;s le Brexit.</div>
             </div>
         </div>
     </div>
@@ -538,7 +809,28 @@
                 <span>Combien de devises sont disponibles ?</span>
                 <span class="faq-arrow">&#9660;</span>
             </div>
-            <div class="faq-a">Plus de 30 devises : EUR, USD, GBP, CHF, JPY, CAD, AUD, MAD, TND, XOF, CNY, INR, BRL, TRY, PLN, SEK, NOK, DKK et bien d'autres. Vous pouvez ajouter ou retirer des devises &agrave; tout moment.</div>
+            <div class="faq-a">Plus de 150 devises : EUR, CHF, USD, GBP, JPY, MAD, XOF, DZD, TND, CAD, AUD, CNY, TRY, BRL, PLN, SEK et bien d'autres. Vous pouvez ajouter ou retirer des devises &agrave; tout moment.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Comment convertir des euros en francs suisses ?</span>
+                <span class="faq-arrow">&#9660;</span>
+            </div>
+            <div class="faq-a">Le franc suisse (CHF) est inclus par d&eacute;faut. Saisissez un montant en EUR ou CHF et le taux de change euro franc suisse se met &agrave; jour automatiquement. Id&eacute;al pour les frontaliers.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Comment convertir des euros en dirhams marocains ?</span>
+                <span class="faq-arrow">&#9660;</span>
+            </div>
+            <div class="faq-a">Le dirham marocain (MAD) est disponible dans la liste. Ajoutez-le si besoin, saisissez un montant et obtenez le taux de change euro dirham marocain du jour. Parfait avant un transfert ou un voyage au Maroc.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Comment convertir des euros en francs CFA ?</span>
+                <span class="faq-arrow">&#9660;</span>
+            </div>
+            <div class="faq-a">Le franc CFA (XOF pour l'Afrique de l'Ouest, XAF pour l'Afrique Centrale) est inclus. Convertissez euro en franc CFA ou CFA en euro instantan&eacute;ment.</div>
         </div>
     </div>
 </section>
@@ -547,7 +839,7 @@
     <div class="container">
         <h2>Installez Convertisseur de Devises</h2>
         <p>100% gratuit, 100% fran&ccedil;ais. Aucun compte requis.</p>
-        <a href="#" class="cta-white">Ajouter &agrave; Chrome — Gratuit</a>
+        <a href="https://chromewebstore.google.com/detail/mjgiogkjhdijbcdhanmglpccbmfegabb" class="cta-white">Ajouter &agrave; Chrome — Gratuit</a>
     </div>
 </section>
 
@@ -557,5 +849,107 @@
     </div>
 </footer>
 
+<script>
+const CONV_CURRENCIES = {
+    EUR: { flag: '🇪🇺', name: 'Euro' },
+    CHF: { flag: '🇨🇭', name: 'Franc suisse' },
+    USD: { flag: '🇺🇸', name: 'Dollar' },
+    GBP: { flag: '🇬🇧', name: 'Livre sterling' },
+    MAD: { flag: '🇲🇦', name: 'Dirham marocain' },
+    JPY: { flag: '🇯🇵', name: 'Yen' },
+    XOF: { flag: '🇸🇳', name: 'Franc CFA' },
+    DZD: { flag: '🇩🇿', name: 'Dinar algérien' },
+    TND: { flag: '🇹🇳', name: 'Dinar tunisien' },
+    TRY: { flag: '🇹🇷', name: 'Livre turque' },
+    CAD: { flag: '🇨🇦', name: 'Dollar canadien' },
+    FRF: { flag: '🇫🇷', name: 'Franc français' },
+};
+const FRF_FIXED = 6.55957;
+let convRates = {};
+let convFrom = 'EUR', convTo = 'CHF';
+
+const QUICK_PAIRS = [
+    ['EUR','CHF'], ['EUR','USD'], ['EUR','GBP'], ['EUR','MAD'],
+    ['EUR','JPY'], ['EUR','XOF'], ['EUR','DZD'], ['EUR','TRY'], ['EUR','FRF']
+];
+
+function renderQuickPairs() {
+    const el = document.getElementById('quickPairs');
+    el.innerHTML = QUICK_PAIRS.map(([f,t]) =>
+        `<button onclick="setPair('${f}','${t}')">${CONV_CURRENCIES[f].flag} ${f} → ${CONV_CURRENCIES[t].flag} ${t}</button>`
+    ).join('');
+}
+
+function setPair(from, to) {
+    convFrom = from; convTo = to;
+    updateCurrencyDisplay();
+    convert();
+}
+
+function updateCurrencyDisplay() {
+    const f = CONV_CURRENCIES[convFrom], t = CONV_CURRENCIES[convTo];
+    document.getElementById('fromFlag').textContent = f.flag;
+    document.getElementById('fromCode').textContent = convFrom;
+    document.getElementById('fromName').textContent = f.name;
+    document.getElementById('toFlag').textContent = t.flag;
+    document.getElementById('toCode').textContent = convTo;
+    document.getElementById('toName').textContent = t.name;
+}
+
+function getRate(code) {
+    if (code === 'EUR') return 1;
+    if (code === 'FRF') return FRF_FIXED;
+    return convRates[code] || 0;
+}
+
+function convert() {
+    const input = document.getElementById('fromInput').value.replace(/[^\d.,]/g, '').replace(',', '.');
+    const val = parseFloat(input);
+    if (isNaN(val) || val === 0) {
+        document.getElementById('toInput').value = '';
+        return;
+    }
+    const fromRate = getRate(convFrom);
+    const toRate = getRate(convTo);
+    if (!fromRate || !toRate) return;
+    const inEur = convFrom === 'EUR' ? val : val / fromRate;
+    const result = convTo === 'EUR' ? inEur : inEur * toRate;
+    document.getElementById('toInput').value = result.toLocaleString('fr-FR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+}
+
+function swapCurrencies() {
+    const resultVal = document.getElementById('toInput').value;
+    [convFrom, convTo] = [convTo, convFrom];
+    updateCurrencyDisplay();
+    if (resultVal) {
+        document.getElementById('fromInput').value = resultVal;
+    }
+    convert();
+}
+
+document.getElementById('fromInput').addEventListener('input', convert);
+
+async function fetchConvRates() {
+    try {
+        const resp = await fetch('https://open.er-api.com/v6/latest/EUR');
+        const data = await resp.json();
+        if (data.result === 'success') {
+            convRates = data.rates;
+            convRates.FRF = FRF_FIXED;
+            const t = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('convStatus').textContent = 'En direct · ' + t;
+            convert();
+        }
+    } catch {
+        document.getElementById('convStatus').textContent = 'Hors ligne';
+    }
+}
+
+renderQuickPairs();
+fetchConvRates();
+</script>
 </body>
 </html>
