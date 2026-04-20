@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9782800108858107"
+         crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XM19Q88HE0"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XM19Q88HE0');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compteur de Mots et Caractères Gratuit — Extension Chrome Française</title>
+    <meta name="description" content="Compteur de mots et caractères gratuit : comptez mots, caractères, phrases, paragraphes, temps de lecture et densité mots-clés en temps réel. Extension Chrome française.">
+    <meta name="keywords" content="compteur de mots, compteur de caractères, compter les mots, compteur de mots gratuit, compteur de mots en ligne, nombre de mots, compteur de phrases, compteur de paragraphes, densité mots clés, temps de lecture, compteur mots français, extension chrome compteur mots, compter caractères, analyse de texte, calculateur de mots">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://nazargulov.github.io/fr/compteur-de-mots/">
+
+    <meta property="og:title" content="Compteur de Mots et Caractères Gratuit — Extension Chrome">
+    <meta property="og:description" content="Compteur de mots et caractères en temps réel : mots, caractères, phrases, paragraphes, temps de lecture. 100% gratuit, en français.">
+    <meta property="og:url" content="https://nazargulov.github.io/fr/compteur-de-mots/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Comment compter les mots d'un texte en ligne ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Collez votre texte dans le compteur ci-dessus : le nombre de mots, caractères, phrases et paragraphes s'affiche instantanément. Pour compter les mots depuis n'importe quelle page web, installez l'extension Chrome Compteur de Mots, sélectionnez le texte et faites un clic droit → Compter les mots."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Ce compteur de mots est-il gratuit ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui, 100% gratuit. Le site et l'extension Chrome sont entièrement gratuits, sans inscription ni limite. Une version Premium optionnelle ajoute des statistiques avancées (densité des mots-clés, export de rapport)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Le compteur fonctionne-t-il en temps réel ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui. Chaque modification du texte met à jour instantanément toutes les statistiques : nombre de mots, caractères avec et sans espaces, phrases, paragraphes et temps de lecture."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment est calculé le temps de lecture ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le temps de lecture est basé sur une vitesse moyenne de 200 mots par minute, qui correspond à la vitesse de lecture adulte standard en français."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quelle est la différence entre caractères avec et sans espaces ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le comptage avec espaces inclut tous les caractères (lettres, chiffres, ponctuation, espaces et retours à la ligne). Le comptage sans espaces ne compte que les caractères visibles. Les rédacteurs web et traducteurs utilisent souvent le comptage avec espaces pour la facturation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Mon texte est-il envoyé sur un serveur ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Non. Tout le traitement est effectué localement dans votre navigateur. Aucun texte n'est envoyé sur un serveur. Seules des statistiques d'usage anonymes (GA4) sont collectées pour améliorer l'extension."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Le compteur fonctionne-t-il pour les PDF ou les documents Word ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le compteur analyse le texte que vous collez. Pour compter les mots d'un PDF ou d'un Word, ouvrez le document, sélectionnez tout le texte (Ctrl+A), copiez (Ctrl+C) et collez-le dans le compteur."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Qu'est-ce que la densité des mots-clés ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "La densité des mots-clés mesure la fréquence d'un mot par rapport au total. Elle est utile en SEO pour vérifier qu'un mot-clé apparaît suffisamment (2-3%) sans être suroptimisé. Cette fonction est incluse dans la version Premium."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Compteur de Mots et Caractères",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Chrome",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "description": "Compteur de mots et caractères gratuit en temps réel. Phrases, paragraphes, temps de lecture, densité mots-clés. Extension Chrome française.",
+        "inLanguage": "fr"
+    }
+    </script>
+
+    <style>
+        :root {
+            --blue: #002395;
+            --red: #ED2939;
+            --blue-light: rgba(0, 35, 149, 0.06);
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+
+        .hero {
+            padding: 110px 0 40px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--blue-light) 0%, var(--white) 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+        .hero h1 .blue { color: var(--blue); }
+        .hero h1 .red { color: var(--red); }
+
+        .hero .lede {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 640px;
+            margin: 0 auto 24px;
+        }
+
+        .hero-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        /* Counter widget */
+        .counter { padding: 40px 0 60px; }
+        .counter h2 { text-align: center; font-size: 1.8rem; margin-bottom: 8px; }
+        .counter .subtitle { text-align: center; color: var(--gray); margin-bottom: 28px; font-size: 0.95rem; }
+
+        .counter-card {
+            max-width: 720px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .counter-textarea {
+            width: 100%;
+            min-height: 180px;
+            padding: 20px;
+            border: none;
+            font-family: inherit;
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            outline: none;
+        }
+
+        .counter-stats {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .counter-stat {
+            text-align: center;
+            padding: 14px 6px;
+            border-right: 1px solid #e2e8f0;
+        }
+        .counter-stat:last-child { border-right: none; }
+        .counter-stat.primary { background: var(--blue); color: white; }
+        .counter-stat.primary .stat-label { color: rgba(255,255,255,0.85); }
+        .counter-stat.primary .stat-value { color: white; }
+
+        .stat-value {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--blue);
+            line-height: 1.1;
+        }
+        .stat-label {
+            display: block;
+            font-size: 0.72rem;
+            color: var(--gray);
+            margin-top: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .counter-footer {
+            padding: 14px 20px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        .counter-footer a {
+            color: var(--blue);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .counter-footer a:hover { text-decoration: underline; }
+
+        /* Features */
+        .features { padding: 60px 0; background: var(--light); }
+        .features h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 26px;
+            transition: transform 0.2s;
+        }
+        .feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+        .feature-icon { font-size: 28px; margin-bottom: 10px; }
+        .feature-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+        .feature-desc { font-size: 0.88rem; color: var(--gray); line-height: 1.5; }
+
+        /* Use cases */
+        .use-cases { padding: 60px 0; }
+        .use-cases h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+
+        .use-case-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .use-case-item {
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            background: var(--light);
+            border-left: 3px solid var(--blue);
+            border-radius: 8px;
+        }
+        .use-case-icon { font-size: 22px; flex-shrink: 0; }
+        .use-case-title { font-weight: 700; margin-bottom: 4px; font-size: 0.95rem; }
+        .use-case-desc { font-size: 0.85rem; color: var(--gray); }
+
+        /* How it works */
+        .how { padding: 60px 0; background: var(--light); }
+        .how h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+
+        .steps { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+        .step { text-align: center; max-width: 240px; }
+        .step-num {
+            width: 46px; height: 46px;
+            background: var(--blue); color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.15rem; font-weight: 800;
+            margin: 0 auto 14px;
+        }
+        .step-title { font-weight: 700; margin-bottom: 6px; }
+        .step-desc { font-size: 0.88rem; color: var(--gray); }
+
+        /* FAQ */
+        .faq { padding: 60px 0; }
+        .faq h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+
+        .faq-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .faq-q {
+            padding: 16px 22px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            font-size: 0.98rem;
+        }
+        .faq-q:hover { background: var(--light); }
+        .faq-a {
+            padding: 0 22px 18px;
+            color: var(--gray);
+            display: none;
+            font-size: 0.92rem;
+        }
+        .faq-item.open .faq-a { display: block; }
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+        .faq-arrow { transition: transform 0.2s; font-size: 0.75rem; }
+
+        /* CTA section */
+        .cta-section {
+            padding: 60px 0;
+            text-align: center;
+            background: var(--blue);
+            color: white;
+        }
+        .cta-section h2 { font-size: 1.9rem; margin-bottom: 12px; }
+        .cta-section p { opacity: 0.9; margin-bottom: 22px; font-size: 1.05rem; }
+        .cta-white {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 30px;
+            background: white;
+            color: var(--blue);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: transform 0.2s;
+        }
+        .cta-white:hover { transform: translateY(-2px); }
+
+        footer {
+            background: var(--dark);
+            color: #94a3b8;
+            padding: 26px 0;
+            text-align: center;
+            font-size: 0.82rem;
+        }
+        footer a { color: #94a3b8; text-decoration: none; }
+        footer a:hover { color: white; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.7rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .use-case-list { grid-template-columns: 1fr; }
+            .counter-stats { grid-template-columns: repeat(3, 1fr); }
+            .counter-stat { border-bottom: 1px solid #e2e8f0; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="../" class="logo"><img src="favicon.svg" alt="" width="28" height="28" style="border-radius:6px"> Compteur de Mots</a>
+        <a href="#installer" class="cta-btn">Ajouter à Chrome</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1><span class="blue">Compteur de Mots</span> et <span class="red">Caractères</span></h1>
+        <p class="lede">Comptez mots, caractères, phrases, paragraphes et temps de lecture en temps réel. 100% gratuit, en français, sans inscription.</p>
+        <div class="hero-badges">
+            <span class="hero-badge">✓ 100% Gratuit</span>
+            <span class="hero-badge">🇫🇷 En français</span>
+            <span class="hero-badge">⚡ Temps réel</span>
+            <span class="hero-badge">🔒 100% privé</span>
+        </div>
+    </div>
+</section>
+
+<section class="counter">
+    <div class="container">
+        <h2>Compteur de mots en ligne</h2>
+        <p class="subtitle">Collez ou tapez votre texte — statistiques instantanées</p>
+        <div class="counter-card">
+            <textarea
+                id="counterText"
+                class="counter-textarea"
+                placeholder="Collez ou tapez votre texte ici pour compter les mots, caractères, phrases et paragraphes..."
+                aria-label="Texte à analyser"></textarea>
+            <div class="counter-stats">
+                <div class="counter-stat primary">
+                    <span class="stat-value" id="wordCount">0</span>
+                    <span class="stat-label">Mots</span>
+                </div>
+                <div class="counter-stat">
+                    <span class="stat-value" id="charCount">0</span>
+                    <span class="stat-label">Caractères</span>
+                </div>
+                <div class="counter-stat">
+                    <span class="stat-value" id="charNoSpace">0</span>
+                    <span class="stat-label">Sans espaces</span>
+                </div>
+                <div class="counter-stat">
+                    <span class="stat-value" id="sentenceCount">0</span>
+                    <span class="stat-label">Phrases</span>
+                </div>
+                <div class="counter-stat">
+                    <span class="stat-value" id="paragraphCount">0</span>
+                    <span class="stat-label">Paragraphes</span>
+                </div>
+                <div class="counter-stat">
+                    <span class="stat-value" id="readingTime">0</span>
+                    <span class="stat-label">Min lecture</span>
+                </div>
+            </div>
+            <div class="counter-footer">
+                Pour compter les mots <strong>sur n'importe quelle page web</strong> (Gmail, Google Docs, LinkedIn…)
+                <a href="#installer">installez l'extension Chrome gratuite →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>Un compteur de mots complet et gratuit</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <div class="feature-title">Compteur de mots</div>
+                <div class="feature-desc">Compte le nombre de mots exact de votre texte. Indispensable pour respecter les limites de dissertations, articles ou posts sociaux.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔤</div>
+                <div class="feature-title">Compteur de caractères</div>
+                <div class="feature-desc">Comptez les caractères avec et sans espaces. Utile pour Twitter/X, SMS, méta-descriptions SEO (155 caractères).</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <div class="feature-title">Phrases &amp; paragraphes</div>
+                <div class="feature-desc">Nombre de phrases et de paragraphes détectés automatiquement. La segmentation respecte les abréviations françaises (M., Mme, Dr…).</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <div class="feature-title">Temps de lecture</div>
+                <div class="feature-desc">Estimation du temps de lecture basée sur 200 mots par minute — la vitesse moyenne d'un lecteur adulte en français.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔑</div>
+                <div class="feature-title">Densité des mots-clés</div>
+                <div class="feature-desc">Identifiez le mot qui revient le plus souvent et sa fréquence. Essentiel pour l'optimisation SEO (Premium).</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-title">100% privé</div>
+                <div class="feature-desc">Aucun texte envoyé sur un serveur. Tout le traitement est local dans votre navigateur. Conforme RGPD.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="use-cases">
+    <div class="container">
+        <h2>Un compteur de mots pour chaque usage</h2>
+        <div class="use-case-list">
+            <div class="use-case-item">
+                <span class="use-case-icon">🎓</span>
+                <div>
+                    <div class="use-case-title">Étudiants</div>
+                    <div class="use-case-desc">Dissertations, mémoires, rapports : respectez les limites de mots imposées.</div>
+                </div>
+            </div>
+            <div class="use-case-item">
+                <span class="use-case-icon">✍️</span>
+                <div>
+                    <div class="use-case-title">Rédacteurs web</div>
+                    <div class="use-case-desc">Articles SEO, briefs clients : calibrage précis et densité mots-clés.</div>
+                </div>
+            </div>
+            <div class="use-case-item">
+                <span class="use-case-icon">📰</span>
+                <div>
+                    <div class="use-case-title">Journalistes</div>
+                    <div class="use-case-desc">Respect du calibrage éditorial, chapeaux, brèves et articles longs.</div>
+                </div>
+            </div>
+            <div class="use-case-item">
+                <span class="use-case-icon">🌐</span>
+                <div>
+                    <div class="use-case-title">Traducteurs</div>
+                    <div class="use-case-desc">Devis et facturation au mot ou au caractère, avec ou sans espaces.</div>
+                </div>
+            </div>
+            <div class="use-case-item">
+                <span class="use-case-icon">📱</span>
+                <div>
+                    <div class="use-case-title">Community managers</div>
+                    <div class="use-case-desc">Tweets (280), posts LinkedIn, descriptions Instagram : la bonne longueur.</div>
+                </div>
+            </div>
+            <div class="use-case-item">
+                <span class="use-case-icon">📚</span>
+                <div>
+                    <div class="use-case-title">Auteurs &amp; blogueurs</div>
+                    <div class="use-case-desc">Suivez la progression de votre livre ou article jusqu'à l'objectif.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="how">
+    <div class="container">
+        <h2>Comment ça marche</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-title">Installez l'extension</div>
+                <div class="step-desc">Cliquez sur « Ajouter à Chrome » depuis le Chrome Web Store.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-title">Sélectionnez du texte</div>
+                <div class="step-desc">Sur n'importe quelle page : article, Gmail, Google Docs, LinkedIn…</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-title">Clic droit → Compter</div>
+                <div class="step-desc">L'extension ouvre les statistiques instantanément.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq" id="faq">
+    <div class="container">
+        <h2>Questions fréquentes</h2>
+        <div class="faq-item open">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Comment compter les mots d'un texte en ligne ?</span>
+                <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">Collez votre texte dans le compteur ci-dessus : le nombre de mots, caractères, phrases et paragraphes s'affiche instantanément. Pour compter les mots depuis n'importe quelle page web, installez l'extension Chrome « Compteur de Mots », sélectionnez le texte et faites un clic droit → « Compter les mots ».</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Ce compteur de mots est-il gratuit ?</span>
+                <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">Oui, 100% gratuit. Le site et l'extension Chrome sont entièrement gratuits, sans inscription ni limite. Une version Premium optionnelle ajoute des statistiques avancées (densité des mots-clés, export de rapport).</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Le compteur fonctionne-t-il en temps réel ?</span>
+                <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">Oui. Chaque modification du texte met à jour instantanément toutes les statistiques : nombre de mots, caractères avec et sans espaces, phrases, paragraphes et temps de lecture.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Comment est calculé le temps de lecture ?</span>
+                <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">Le temps de lecture est basé sur une vitesse moyenne de 200 mots par minute, qui correspond à la vitesse de lecture adulte standard en français.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Quelle est la différence entre caractères avec et sans espaces ?</span>
+                <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">Le comptage avec espaces inclut tous les caractères (lettres, chiffres, ponctuation, espaces et retours à la ligne). Le comptage sans espaces ne compte que les caractères visibles. Les rédacteurs web et traducteurs utilisent souvent le comptage avec espaces pour la facturation.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Mon texte est-il envoyé sur un serveur ?</span>
+                <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">Non. Tout le traitement est effectué localement dans votre navigateur. Aucun texte n'est envoyé sur un serveur. Seules des statistiques d'usage anonymes (GA4) sont collectées pour améliorer l'extension.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Le compteur fonctionne-t-il pour les PDF ou Word ?</span>
+                <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">Le compteur analyse le texte que vous collez. Pour compter les mots d'un PDF ou d'un Word, ouvrez le document, sélectionnez tout le texte (Ctrl+A), copiez (Ctrl+C) et collez-le dans le compteur.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                <span>Qu'est-ce que la densité des mots-clés ?</span>
+                <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-a">La densité des mots-clés mesure la fréquence d'un mot par rapport au total. Elle est utile en SEO pour vérifier qu'un mot-clé apparaît suffisamment (2-3%) sans être suroptimisé. Cette fonction est incluse dans la version Premium.</div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" id="installer">
+    <div class="container">
+        <h2>Installez Compteur de Mots pour Chrome</h2>
+        <p>Compteur de mots et caractères 100% gratuit, en français. Aucun compte requis.</p>
+        <a href="https://chromewebstore.google.com/search/compteur%20de%20mots" class="cta-white">Ajouter à Chrome — Gratuit</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Compteur de Mots &middot;
+            <a href="confidentialite.html">Politique de confidentialité</a> &middot;
+            <a href="conditions.html">Conditions d'utilisation</a> &middot;
+            <a href="../">Autres extensions FR</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+const FR_ABBREV = ['M', 'Mme', 'Mlle', 'Dr', 'Pr', 'St', 'Ste', 'etc', 'cf', 'p', 'pp', 'vol', 'ex', 'env', 'av', 'ap'];
+const ABBR_MARK = '\u0001';
+
+const textarea = document.getElementById('counterText');
+const $w = document.getElementById('wordCount');
+const $c = document.getElementById('charCount');
+const $cn = document.getElementById('charNoSpace');
+const $s = document.getElementById('sentenceCount');
+const $p = document.getElementById('paragraphCount');
+const $r = document.getElementById('readingTime');
+
+function countSentences(t) {
+    let n = t;
+    for (const a of FR_ABBREV) n = n.replace(new RegExp(`\\b${a}\\.`, 'g'), a + ABBR_MARK);
+    return n.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+}
+
+function update() {
+    const t = textarea.value;
+    const words = t.trim() ? t.trim().split(/\s+/).length : 0;
+    $w.textContent = words;
+    $c.textContent = t.length;
+    $cn.textContent = t.replace(/\s/g, '').length;
+    $s.textContent = countSentences(t);
+    $p.textContent = t.split(/\n\n+/).filter(p => p.trim()).length;
+    $r.textContent = Math.ceil(words / 200);
+}
+
+textarea.addEventListener('input', update);
+update();
+</script>
+
+</body>
+</html>
